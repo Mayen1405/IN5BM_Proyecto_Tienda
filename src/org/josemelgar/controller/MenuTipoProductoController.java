@@ -76,7 +76,7 @@ public class MenuTipoProductoController implements Initializable {
         txtCodigoTipoP.setText(String.valueOf(((TipoDeProducto) tblTipoProducto.getSelectionModel().getSelectedItem()).getCodigoTipoProducto()));
         txtDescripcion.setText((((TipoDeProducto) tblTipoProducto.getSelectionModel().getSelectedItem()).getDescripcion()));
     }
-    
+
     public ObservableList<TipoDeProducto> getTipoProducto() {
         ArrayList<TipoDeProducto> listaTipoP = new ArrayList<>();
         try {
@@ -92,7 +92,7 @@ public class MenuTipoProductoController implements Initializable {
         }
         return ListaTipoDeProducto = FXCollections.observableList(listaTipoP);
     }
-    
+
     public void Agregar() {
         switch (tipoDeOperaciones) {
             case Ninguno:
@@ -132,7 +132,7 @@ public class MenuTipoProductoController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     public void eliminar() {
         switch (tipoDeOperaciones) {
             case ActualizarTP:
@@ -218,13 +218,11 @@ public class MenuTipoProductoController implements Initializable {
             registro.setDescripcion(txtDescripcion.getText());
             procedimiento.setInt(1, registro.getCodigoTipoProducto());
             procedimiento.setString(2, registro.getDescripcion());
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-    
 
     public void desactivarControles() {
         txtCodigoTipoP.setEditable(false);

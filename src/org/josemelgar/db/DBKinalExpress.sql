@@ -467,7 +467,7 @@ begin
 end &&
 delimiter ;
 
------------------------------------------ productos
+-- productos
 -- agregar producto
 delimiter $$
 create procedure sp_agregarproducto(in idproducto int, in descripcionproducto varchar(40), in preciounitario decimal(10,2), 
@@ -512,7 +512,7 @@ begin
 end &&
 delimiter ;
 
--------------- empleado
+-- empleado
 
 -- agregar empleado
 delimiter $$
