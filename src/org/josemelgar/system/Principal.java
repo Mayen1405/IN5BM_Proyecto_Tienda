@@ -25,14 +25,14 @@ public class Principal extends Application {
 
     private Stage escenarioPrincipal;
     private Scene escena;
-    private final String URLVIEW = "/org/josemelgar/view/";
+  
 
     @Override
     public void start(Stage escenarioPrincipal) throws Exception {
         this.escenarioPrincipal = escenarioPrincipal;
         this.escenarioPrincipal.setTitle("Kinal Express");
-        escenarioPrincipal.getIcons().add(new Image(Principal.class.getResourceAsStream("/org/josemelgar/images/LogoKinal.png")));
         menuPrincipalView();
+        escenarioPrincipal.getIcons().add(new Image(Principal.class.getResourceAsStream("/org/josemelgar/images/LogoKinal.png")));
         //Parent root = FXMLLoader.load(getClass().getResource("/org/josemelgar/view/MenuPrincipalView.fxml"));
         // Scene escena = new Scene(root);
         // escenarioPrincipal.setScene(escena);
@@ -43,10 +43,9 @@ public class Principal extends Application {
         Initializable resultado;
         FXMLLoader loader = new FXMLLoader();
 
-        InputStream file = Principal.class.getResourceAsStream(URLVIEW + fxmlName);
+        InputStream file = Principal.class.getResourceAsStream("/org/josemelgar/view/" + fxmlName);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(Principal.class.getResource(URLVIEW + fxmlName));
-
+        loader.setLocation(Principal.class.getResource("/org/josemelgar/view/" + fxmlName));
         escena = new Scene((AnchorPane) loader.load(file), width, heigth);
         escenarioPrincipal.setScene(escena);
         escenarioPrincipal.sizeToScene();
@@ -94,7 +93,7 @@ public class Principal extends Application {
 
     public void menuProveedoresView() {
         try {
-            MenuProveedoresController menuProveedoresView = (MenuProveedoresController) cambiarEscena("MenuProveedoresView.fxml", 899, 508);
+            MenuProveedoresController menuProveedoresView = (MenuProveedoresController) cambiarEscena("MenuProveedoresView.fxml", 969, 551);
             menuProveedoresView.setEscenarioPrincipal(this);
         } catch (Exception e) {
             System.out.println(e.getMessage());

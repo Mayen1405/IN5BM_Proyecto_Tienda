@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="969.0" stylesheets="@../resource/KinalExpressCSS_1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemelgar.controller.MenuProveedoresController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemelgar.controller.MenuProveedoresController">
    <children>
-      <ImageView fitHeight="581.0" fitWidth="969.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="551.0" fitWidth="969.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Presentación%20para%20Proyectos%20Simple%20Rojo%20y%20Naranja%20(1).png" />
          </image>
@@ -45,7 +45,7 @@
             <Button fx:id="btnAgregarProvedor" mnemonicParsing="false" onAction="#Agregar" prefHeight="72.0" prefWidth="142.0" text="Agregar" />
          </children>
       </GridPane>
-      <TableView fx:id="tblPoveedores" layoutX="247.0" layoutY="273.0" prefHeight="238.0" prefWidth="652.0">
+      <TableView fx:id="tblPoveedores" layoutX="247.0" layoutY="273.0" onMouseClicked="#seleccionarElemento" prefHeight="238.0" prefWidth="652.0">
         <columns>
           <TableColumn fx:id="colCodProveedor" prefWidth="65.0" text="codigo" />
           <TableColumn fx:id="colNitProveedor" prefWidth="68.0" text="nit" />

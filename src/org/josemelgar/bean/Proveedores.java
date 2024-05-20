@@ -18,13 +18,11 @@ public class Proveedores {
     private String razonSocial;
     private String contactoPrincipal;
     private String paginaWeb;
-    private String telefonoProveedor;
-    private String correoProveedor;
 
     public Proveedores() {
     }
 
-    public Proveedores(int codigoProveedor, String nitProveedor, String nombreProveedor, String apellidoProveedor, String direccionProveedor, String razonSocial, String contactoPrincipal, String paginaWeb, String telefonoProveedor, String correoProveedor) {
+    public Proveedores(int codigoProveedor, String nitProveedor, String nombreProveedor, String apellidoProveedor, String direccionProveedor, String razonSocial, String contactoPrincipal, String paginaWeb) {
         this.codigoProveedor = codigoProveedor;
         this.nitProveedor = nitProveedor;
         this.nombreProveedor = nombreProveedor;
@@ -33,8 +31,6 @@ public class Proveedores {
         this.razonSocial = razonSocial;
         this.contactoPrincipal = contactoPrincipal;
         this.paginaWeb = paginaWeb;
-        this.telefonoProveedor = telefonoProveedor;
-        this.correoProveedor = correoProveedor;
     }
 
     public int getCodigoProveedor() {
@@ -100,23 +96,5 @@ public class Proveedores {
     public void setPaginaWeb(String paginaWeb) {
         this.paginaWeb = paginaWeb;
     }
-
-    public String getTelefonoProveedor() {
-        return telefonoProveedor;
-    }
-
-    public void setTelefonoProveedor(String telefonoProveedor) {
-        this.telefonoProveedor = telefonoProveedor;
-    }
-
-    public String getCorreoProveedor() {
-        return correoProveedor;
-    }
-
-    public void setCorreoProveedor(String correoProveedor) {
-        this.correoProveedor = correoProveedor;
-    }
-
-   
 
 }

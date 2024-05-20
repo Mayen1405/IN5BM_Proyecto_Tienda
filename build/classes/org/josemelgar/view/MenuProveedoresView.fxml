@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="969.0" stylesheets="@../resource/KinalExpressCSS_1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemelgar.controller.MenuProveedoresController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemelgar.controller.MenuProveedoresController">
    <children>
-      <ImageView fitHeight="581.0" fitWidth="969.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="551.0" fitWidth="969.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Presentación%20para%20Proyectos%20Simple%20Rojo%20y%20Naranja%20(1).png" />
          </image>
@@ -39,22 +39,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="142.0" text="Eliminar" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="142.0" text="Editar" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="142.0" text="Reportes" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="72.0" prefWidth="142.0" text="Agregar" />
+            <Button fx:id="btnEliminarProvedor" mnemonicParsing="false" onAction="#eliminar" prefHeight="72.0" prefWidth="142.0" text="Eliminar" GridPane.rowIndex="1" />
+            <Button fx:id="btnEditarProvedor" mnemonicParsing="false" onAction="#editar" prefHeight="72.0" prefWidth="142.0" text="Editar" GridPane.rowIndex="3" />
+            <Button fx:id="btnReportesProvedor" mnemonicParsing="false" onAction="#reportes" prefHeight="72.0" prefWidth="142.0" text="Reportes" GridPane.rowIndex="2" />
+            <Button fx:id="btnAgregarProvedor" mnemonicParsing="false" onAction="#Agregar" prefHeight="72.0" prefWidth="142.0" text="Agregar" />
          </children>
       </GridPane>
-      <TableView layoutX="247.0" layoutY="273.0" prefHeight="238.0" prefWidth="652.0">
+      <TableView fx:id="tblPoveedores" layoutX="247.0" layoutY="273.0" onMouseClicked="#seleccionarElemento" prefHeight="238.0" prefWidth="652.0">
         <columns>
-          <TableColumn prefWidth="65.0" text="codigo" />
-          <TableColumn prefWidth="68.0" text="nit" />
-            <TableColumn prefWidth="77.0" text="nombre" />
-            <TableColumn prefWidth="71.0" text="apellidos" />
-            <TableColumn prefWidth="94.0" text="contacto" />
-            <TableColumn prefWidth="75.0" text="pagina web" />
-            <TableColumn prefWidth="96.0" text="razon soical" />
-            <TableColumn prefWidth="108.0" text="direccion" />
+          <TableColumn fx:id="colCodProveedor" prefWidth="65.0" text="codigo" />
+          <TableColumn fx:id="colNitProveedor" prefWidth="68.0" text="nit" />
+            <TableColumn fx:id="colNomProvedor" prefWidth="77.0" text="nombre" />
+            <TableColumn fx:id="colApeProvedor" prefWidth="71.0" text="apellidos" />
+            <TableColumn fx:id="colTelProvedor" prefWidth="94.0" text="contacto" />
+            <TableColumn fx:id="colSitioWeb" prefWidth="75.0" text="pagina web" />
+            <TableColumn fx:id="colRazonSocial" prefWidth="96.0" text="razon soical" />
+            <TableColumn fx:id="colDireProvedor" prefWidth="108.0" text="direccion" />
         </columns>
       </TableView>
       <GridPane layoutX="339.0" layoutY="102.0">
@@ -89,10 +89,10 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtCodigoProvedor" GridPane.columnIndex="1" />
+            <TextField fx:id="txtNitProvedor" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtNombresProvedor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtApellidosProvedor" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <GridPane layoutX="580.0" layoutY="102.0">
@@ -129,10 +129,10 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtTelefono" GridPane.columnIndex="1" />
+            <TextField fx:id="txtSitioWeb" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtRazonSocial" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtDireccionProvedor" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

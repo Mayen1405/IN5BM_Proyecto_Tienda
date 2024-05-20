@@ -11,9 +11,7 @@ import javafx.scene.control.MenuItem;
 import org.josemelgar.system.Principal;
 
 /**
- * Nombre completo:Jose Pablo Melgar Mayen
- * carnet: 2020478
- * seccion: IN5BM
+ * Nombre completo:Jose Pablo Melgar Mayen carnet: 2020478 seccion: IN5BM
  */
 public class MenuPrincipalController implements Initializable {
 
@@ -33,10 +31,6 @@ public class MenuPrincipalController implements Initializable {
 
     }
 
-    public Principal getEscenarioPrincipal() {
-        return escenarioPrincipal;
-    }
-
     public void setEscenarioPrincipal(Principal escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
     }
@@ -52,5 +46,5 @@ public class MenuPrincipalController implements Initializable {
         } else if (event.getSource() == btnProveedores) {
             escenarioPrincipal.menuProveedoresView();
         }
-    }   
+    }
 }

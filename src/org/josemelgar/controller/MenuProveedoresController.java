@@ -61,10 +61,6 @@ public class MenuProveedoresController implements Initializable {
     @FXML
     private TableColumn colSitioWeb;
     @FXML
-    private TableColumn colTelProvedor;
-    @FXML
-    private TableColumn colCorreoProveedor;
-    @FXML
     private Button btnAgregarProvedor;
     @FXML
     private Button btnEditarProvedor;
@@ -94,7 +90,8 @@ public class MenuProveedoresController implements Initializable {
     private TextField txtCorreoProveedor;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL url, ResourceBundle rb) {
+        cargarDatos();
     }
 
     public void cargarDatos() {
@@ -105,10 +102,8 @@ public class MenuProveedoresController implements Initializable {
         colApeProvedor.setCellValueFactory(new PropertyValueFactory<Proveedores, String>("apellidosProveedor"));
         colDireProvedor.setCellValueFactory(new PropertyValueFactory<Proveedores, String>("direccionProveedor"));
         colRazonSocial.setCellValueFactory(new PropertyValueFactory<Proveedores, String>("razonSocial"));
-        colTelProvedor.setCellValueFactory(new PropertyValueFactory<Proveedores, String>("telefonoProveedor"));
         colSitioWeb.setCellValueFactory(new PropertyValueFactory<Proveedores, String>("paginaWeb"));
-        colContactoProvedor.setCellValueFactory(new PropertyValueFactory<Proveedores, String>("paginaWeb"));
-        colCorreoProveedor.setCellValueFactory(new PropertyValueFactory<Proveedores, String>("paginaWeb"));
+        colContactoProvedor.setCellValueFactory(new PropertyValueFactory<Proveedores, String>("contactoPrincipal"));
 
     }
 
@@ -121,8 +116,6 @@ public class MenuProveedoresController implements Initializable {
         txtRazonSocial.setText((((Proveedores) tblPoveedores.getSelectionModel().getSelectedItem()).getRazonSocial()));
         txtContactoProveedor.setText((((Proveedores) tblPoveedores.getSelectionModel().getSelectedItem()).getContactoPrincipal()));
         txtSitioWeb.setText((((Proveedores) tblPoveedores.getSelectionModel().getSelectedItem()).getPaginaWeb()));
-        txtTelefono.setText((((Proveedores) tblPoveedores.getSelectionModel().getSelectedItem()).getTelefonoProveedor()));
-        txtCorreoProveedor.setText((((Proveedores) tblPoveedores.getSelectionModel().getSelectedItem()).getCorreoProveedor()));
     }
 
     public ObservableList<Proveedores> getProveedores() {
@@ -138,9 +131,7 @@ public class MenuProveedoresController implements Initializable {
                         resultado.getString("direccionProveedor"),
                         resultado.getString("razonSocial"),
                         resultado.getString("contactoPrincipal"),
-                        resultado.getString("telefonoProveedor"),
-                        resultado.getString("paginaweb"),
-                        resultado.getString("correoProveedor")));
+                        resultado.getString("paginaweb")));
             }
 
         } catch (Exception e) {
@@ -184,8 +175,6 @@ public class MenuProveedoresController implements Initializable {
         registro.setRazonSocial(txtRazonSocial.getText());
         registro.setContactoPrincipal(txtContactoProveedor.getText());
         registro.setPaginaWeb(txtSitioWeb.getText());
-        registro.setTelefonoProveedor(txtTelefono.getText());
-        registro.setCorreoProveedor(txtCorreoProveedor.getText());
 
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_agregarproveedor(?,?,?,?,?,?,?,?,?,?)}");
@@ -197,8 +186,6 @@ public class MenuProveedoresController implements Initializable {
             procedimiento.setString(6, registro.getRazonSocial());
             procedimiento.setString(7, registro.getContactoPrincipal());
             procedimiento.setString(8, registro.getPaginaWeb());
-            procedimiento.setString(9, registro.getTelefonoProveedor());
-            procedimiento.setString(10, registro.getCorreoProveedor());
             ListaProveedores.add(registro);
         } catch (Exception e) {
             e.printStackTrace();
@@ -294,8 +281,6 @@ public class MenuProveedoresController implements Initializable {
             registro.setRazonSocial(txtRazonSocial.getText());
             registro.setContactoPrincipal(txtContactoProveedor.getText());
             registro.setPaginaWeb(txtSitioWeb.getText());
-            registro.setTelefonoProveedor(txtTelefono.getText());
-            registro.setCorreoProveedor(txtCorreoProveedor.getText());
             procedimiento.setInt(1, registro.getCodigoProveedor());
             procedimiento.setString(2, registro.getNitProveedor());
             procedimiento.setString(3, registro.getNombreProveedor());
@@ -304,8 +289,6 @@ public class MenuProveedoresController implements Initializable {
             procedimiento.setString(6, registro.getRazonSocial());
             procedimiento.setString(7, registro.getContactoPrincipal());
             procedimiento.setString(8, registro.getPaginaWeb());
-            procedimiento.setString(9, registro.getTelefonoProveedor());
-            procedimiento.setString(10, registro.getCorreoProveedor());
         } catch (Exception e) {
             e.printStackTrace();
         }
