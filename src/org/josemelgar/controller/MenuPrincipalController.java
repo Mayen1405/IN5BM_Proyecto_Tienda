@@ -30,6 +30,10 @@ public class MenuPrincipalController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+    
+    public void regresar() {
+        escenarioPrincipal.menuPrincipalView();
+    }
 
     public void setEscenarioPrincipal(Principal escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
