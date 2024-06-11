@@ -3,26 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/db/DBKinalExpress.sql</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Proveedores.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuProductosController.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/view/ProgramadorView.fxml</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/TipoDeProducto.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/system/Principal.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuComprasController.java</file>
             <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/view/MenuClientesView.fxml</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Factura.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuClientesController.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Clientes.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Proveedores.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Productos.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/db/DBKinalExpress.sql</file>
             <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/ProgramadorController.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Compras.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuProveedoresController.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/view/MenuProveedoresView.fxml</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuTipoProductoController.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/db/Conexion.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuPrincipalController.java</file>
-            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/nbproject/jfx-impl.xml</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuProductosController.java</file>
             <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/view/MenuPrincipalView.fxml</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuProveedoresController.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Factura.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/EmailProveedor.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/view/ProgramadorView.fxml</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuCargoEmpleado.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/system/Principal.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/nbproject/jfx-impl_backup_2.xml</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Compras.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuClientesController.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuPrincipalController.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/TelefonoProveedor.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/DetalleFactura.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/report/reportesTienda.jrxml</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/DetalleCompra.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Clientes.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuComprasController.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/CargoEmpleado.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/controller/MenuTipoProductoController.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/TipoDeProducto.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/bean/Empleados.java</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/view/MenuProveedoresView.fxml</file>
+            <file>file:/C:/Users/Jose/Documents/NetBeansProjects/proyecto%20tienda/src/org/josemelgar/db/Conexion.java</file>
         </group>
     </open-files>
 </project-private>

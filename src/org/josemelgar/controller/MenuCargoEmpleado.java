@@ -32,7 +32,7 @@ public class MenuCargoEmpleado implements Initializable {
     private Principal escenarioPrincipal;
 
     private enum operaciones {
-        AgregarCliente, EliminarCliente, EditarCliente, ActualizarCliente, Cancelar, Ninguno
+        AgregarCE, EliminarCE, EditarCE, ActualizarCE, Cancelar, Ninguno
     }
     private operaciones tipoDeOperaciones = operaciones.Ninguno;
     private ObservableList<CargoEmpleado> ListaCargoEmpleado;
@@ -72,7 +72,7 @@ public class MenuCargoEmpleado implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cargarDatos();
+        cargarDatosCargoE();
     }
     
     public Principal getEscenarioPrincipal() {
@@ -91,7 +91,7 @@ public class MenuCargoEmpleado implements Initializable {
     }
     
     public void cargarDatosCargoE() {
-        tblCargoE.setItems(getCargoE);
+        tblCargoE.setItems(getCargoE());
         colCodigoCargoC.setCellValueFactory(new PropertyValueFactory<CargoEmpleado, Integer>("codigoCargoEmpleado"));
         colNombreCargoC.setCellValueFactory(new PropertyValueFactory<CargoEmpleado, String>("nombreCargo"));
         colDescripcionC.setCellValueFactory(new PropertyValueFactory<CargoEmpleado, String>("descripcionCargo"));
@@ -121,5 +121,168 @@ public class MenuCargoEmpleado implements Initializable {
 
         return ListaCargoEmpleado = FXCollections.observableList(lista);
     }
+    
+    public void guardarCargoEmpleado() {
+        CargoEmpleado registro = new CargoEmpleado();
+        registro.setCodigoCargoEmpleado(Integer.parseInt(txtCodigoCargoEmpleado.getText()));
+        registro.setNombreCargo(txtnombreCargo.getText());
+        registro.setDescripcionCargo(txtdescripcionCargo.getText());
+
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarCargoEmpleado(?,?,?)}");
+            procedimiento.setInt(1, registro.getCodigoCargoEmpleado());
+            procedimiento.setString(2, registro.getNombreCargo());
+            procedimiento.setString(3, registro.getDescripcionCargo());
+
+            procedimiento.execute();
+            ListaCargoEmpleado.add(registro);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void actualizarCargoEmpleado() {
+
+        CargoEmpleado registro = (CargoEmpleado) tblCargoE.getSelectionModel().getSelectedItem();
+        registro.setCodigoCargoEmpleado(Integer.parseInt(txtCodigoCargoEmpleado.getText()));
+        registro.setNombreCargo(txtnombreCargo.getText());
+        registro.setDescripcionCargo(txtdescripcionCargo.getText());
+
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ActualizaRCargoEmpleado(?,?,?)}");
+            procedimiento.setInt(1, registro.getCodigoCargoEmpleado());
+            procedimiento.setString(2, registro.getNombreCargo());
+            procedimiento.setString(3, registro.getDescripcionCargo());
+
+            procedimiento.execute();
+            ListaCargoEmpleado.add(registro);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void AgregarCargoEmpleado() {
+        switch (tipoDeOperaciones) {
+            case Ninguno:
+                activarControles();
+                btnAgregarCargoE.setText("Guardar");
+                btnReportes.setText("Cancelar");
+                btnAgregarCargoE.setDisable(false);
+                btnReportes.setDisable(false);
+                btnEliminarCargoE.setDisable(true);
+                btnEditarCargoE.setDisable(true);
+                tipoDeOperaciones = operaciones.ActualizarCE;
+                break;
+            case ActualizarCE:
+                guardarCargoEmpleado();
+                desactivarControles();
+                btnAgregarCargoE.setText("Agregar");
+                btnReportes.setText("Cancelar");
+                btnEditarCargoE.setDisable(false);
+                btnEliminarCargoE.setDisable(false);
+                btnEliminarCargoE.setDisable(true);
+                btnEditarCargoE.setDisable(true);
+                tipoDeOperaciones = operaciones.Ninguno;
+                break;
+        }
+    }
+    
+    public void eliminarCargoEmpleado() {
+        switch (tipoDeOperaciones) {
+            case ActualizarCE:
+                desactivarControles();
+                limpiarControles();
+                btnAgregarCargoE.setText("Agregar");
+                btnEliminarCargoE.setText("Eliminar");
+                btnEditarCargoE.setDisable(false);
+                btnReportes.setDisable(false);
+                tipoDeOperaciones = operaciones.Ninguno;
+                break;
+            default:
+                if (tblCargoE.getSelectionModel().getSelectedItem() != null) {
+                    int respuesta = JOptionPane.showConfirmDialog(null, "Confirmar la eliminacion del Cargo de Empleado",
+                            "Eliminar Cargo de Empleado", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (respuesta == JOptionPane.YES_NO_OPTION) {
+                        try {
+                            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{ CALL sp_EliminarCargoEmpleado(?)}");
+                            procedimiento.setInt(1, ((CargoEmpleado) tblCargoE.getSelectionModel().getSelectedItem()).getCodigoCargoEmpleado());
+                            ListaCargoEmpleado.remove(tblCargoE.getSelectionModel().getSelectedItem());
+                            limpiarControles();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } else {
+                    JOptionPane.showConfirmDialog(null, "Debe seleccionar un Cargo de Empleado para eliminar");
+                }
+                break; 
+        }
+    }
+        
+        
+        public void editarCargoEmpleado() {
+        switch (tipoDeOperaciones) {
+            case Ninguno:
+                if (tblCargoE.getSelectionModel().getSelectedItem() != null) {
+                    btnEditarCargoE.setText("Actualizar");
+                    btnReportes.setText("Cancelar");
+                    btnEditarCargoE.setDisable(false);
+                    btnReportes.setDisable(false);
+                    btnAgregarCargoE.setDisable(true);
+                    btnEliminarCargoE.setDisable(true);
+                    activarControles();
+                    txtCodigoCargoEmpleado.setEditable(false);
+                    tipoDeOperaciones = operaciones.ActualizarCE;
+                } else {
+                    JOptionPane.showConfirmDialog(null, "Debe seleccionar un Cargo de Empleado para editar");
+                }
+                break;
+            case ActualizarCE:
+                actualizarCargoEmpleado();
+                btnEditarCargoE.setText("Actualizar");
+                btnReportes.setText("Reporte");
+                btnEditarCargoE.setDisable(false);
+                btnReportes.setDisable(false);
+                desactivarControles();
+                limpiarControles();
+                tipoDeOperaciones = operaciones.Ninguno;
+                cargarDatosCargoE();
+                break;
+        }
+    }
+    
+    public void cancelarAccion() {
+        limpiarControles();
+        desactivarControles();
+        btnAgregarCargoE.setText("Agregar");
+        btnEditarCargoE.setText("Editar");
+        btnEliminarCargoE.setText("Eliminar");
+        btnRegresar.setText("Regresar");
+        btnReportes.setText("Reportes");
+        btnAgregarCargoE.setDisable(false);
+        btnEditarCargoE.setDisable(false);
+        btnEliminarCargoE.setDisable(false);
+        btnReportes.setDisable(false);
+        tipoDeOperaciones = operaciones.Ninguno;
+    }
+
+    public void desactivarControles() {
+        txtCodigoCargoEmpleado.setEditable(false);
+        txtnombreCargo.setEditable(false);
+        txtdescripcionCargo.setEditable(false);
+    }
+
+    public void activarControles() {
+        txtCodigoCargoEmpleado.setEditable(true);
+        txtnombreCargo.setEditable(true);
+        txtdescripcionCargo.setEditable(true);
+    }
+
+    public void limpiarControles() {
+        txtCodigoCargoEmpleado.clear();
+        txtnombreCargo.clear();
+        txtdescripcionCargo.clear();
+    }
+    
 }
 

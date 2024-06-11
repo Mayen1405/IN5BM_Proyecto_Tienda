@@ -4,8 +4,6 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +21,6 @@ import javax.swing.JOptionPane;
 import org.josemelgar.db.Conexion;
 import org.josemelgar.system.Principal;
 import org.josemelgar.bean.Clientes;
-import org.josemelgar.report.GenerarReportes;
 
 
 /**
@@ -279,9 +276,6 @@ public class MenuClientesController implements Initializable {
 
     public void reportes() {
         switch (tipoDeOperaciones) {
-            case Ninguno:
-                imprimirReporte();
-                break;
             case ActualizarCliente:
                 desactivarControles();
                 limpiarControles();
@@ -294,12 +288,6 @@ public class MenuClientesController implements Initializable {
                 tipoDeOperaciones = operaciones.Ninguno;
                 break;
         }
-    }
-    
-    public void imprimirReporte(){
-        Map parametros = new HashMap();
-        parametros.put("CodigoClientes", null);
-        GenerarReportes.mostrarReportes("reportesTienda", "reportes de clientes", parametros);
     }
 
     public void desactivarControles() {
@@ -343,8 +331,6 @@ public class MenuClientesController implements Initializable {
             escenarioPrincipal.menuPrincipalView();
         }
     }
-    
-    
 
 }
 
