@@ -516,11 +516,11 @@ delimiter ;
 
 -- agregar empleado
 delimiter $$
-create procedure sp_agregarempleado(in idempleado int, in nombresempleado varchar(50), in apellidosempleado varchar(50),
-in sueldo decimal(10,2), in direccion varchar(150), in turno varchar(15), in idcargoempleado int)
+create procedure sp_agregarempleado(in codigoempleado int, in nombresempleado varchar(50), in apellidosempleado varchar(50),
+in sueldo decimal(10,2), in direccion varchar(150), in turno varchar(15), in codigocargoempleado int)
 begin
-    insert into Empleados (idempleado, nombresempleado, apellidosempleado, sueldo, direccion, turno, idcargoempleado)
-    values (idempleado, nombresempleado, apellidosempleado, sueldo, direccion, turno, idcargoempleado);
+    insert into Empleados (codigoempleado, nombresempleado, apellidosempleado, sueldo, direccion, turno, codigocargoempleado)
+    values (codigoempleado, nombresempleado, apellidosempleado, sueldo, direccion, turno, codigocargoempleado);
 end $$
 delimiter ;
 
@@ -596,6 +596,12 @@ end $$
 delimiter ;
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';
+
+select * from DetalleFactura
+	join Factura on DetalleFactura.numeroDeFactura = Factura.numeroDeFactura
+    join clientes on Factura.clienteID = Clientes.clienteID
+    join Productos on DetalleFactura.codigoProducto = Productos.codigoProducto
+    where Factura.numeroDeFactura = 2; 
 
 
 

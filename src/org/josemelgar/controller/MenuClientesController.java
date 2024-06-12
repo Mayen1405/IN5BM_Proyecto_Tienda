@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,7 +23,7 @@ import javax.swing.JOptionPane;
 import org.josemelgar.db.Conexion;
 import org.josemelgar.system.Principal;
 import org.josemelgar.bean.Clientes;
-
+import org.josemelgar.report.GenerarReportes;
 
 /**
  * Nombre completo:Jose Pablo Melgar Mayen carnet: 2020478 seccion: IN5BM
@@ -276,18 +278,26 @@ public class MenuClientesController implements Initializable {
 
     public void reportes() {
         switch (tipoDeOperaciones) {
+            case Ninguno:
+                imprimirReporte();
+                break;
             case ActualizarCliente:
-                desactivarControles();
-                limpiarControles();
+                btnReportes.setText("Reportes");
                 btnEditarCliente.setText("Editar");
-                btnReportes.setText("Reporte");
                 btnAgregarCliente.setDisable(false);
                 btnEliminarCliente.setDisable(false);
-                imgActualizarCliente.setImage(new Image("/org/josemelgar/images/editar.png"));
-                imgReportes.setImage(new Image("/org/josemelgar/images/reporte.png"));
+                btnRegresar.setDisable(false);
+                limpiarControles();
+                desactivarControles();
                 tipoDeOperaciones = operaciones.Ninguno;
-                break;
+                cargarDatos();
         }
+    }
+
+    public void imprimirReporte() {
+        Map parametro = new HashMap();
+        parametro.put("IDCliente", null);
+        GenerarReportes.mostrarReportes("reportesClientes.jasper", "Reportes de Clientes", parametro);
     }
 
     public void desactivarControles() {
@@ -333,4 +343,5 @@ public class MenuClientesController implements Initializable {
     }
 
 }
+
 

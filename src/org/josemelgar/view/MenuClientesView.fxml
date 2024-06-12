@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1022.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemelgar.controller.MenuClientesController">
+<fx:root id="AnchorPane" prefHeight="576.0" prefWidth="1022.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josemelgar.controller.MenuClientesController">
    <children>
       <ImageView fitHeight="579.0" fitWidth="1024.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -98,4 +98,4 @@
          </children>
       </GridPane>
    </children>
-</AnchorPane>
+</fx:root>

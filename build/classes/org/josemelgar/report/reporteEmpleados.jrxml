@@ -28,19 +28,58 @@
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
-		<band splitType="Stretch"/>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="555" height="802" uuid="ba72522f-483b-454c-b3c8-b552dec9e5b6"/>
+				<imageExpression><![CDATA["C:\\Users\\Jose\\Documents\\NetBeansProjects\\proyecto tienda\\src\\org\\josemelgar\\images\\informe financiero corporativo azul.png"]]></imageExpression>
+			</image>
+		</band>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="93" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="174" splitType="Stretch">
+			<staticText>
+				<reportElement x="132" y="117" width="100" height="20" uuid="cde45048-1b32-4c91-adae-0c49060315b3"/>
+				<text><![CDATA[codigoEmpleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="117" width="100" height="20" uuid="a0c97f0e-545b-4004-874b-d6c6fc9db624"/>
+				<text><![CDATA[apellidosEmpleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="117" width="100" height="20" uuid="06770b17-6739-4cfd-b7f2-ea7b0722cbd8"/>
+				<text><![CDATA[turno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="117" width="100" height="20" uuid="fbcd61c3-bd69-40f8-81dd-500ac7dddfb5"/>
+				<text><![CDATA[codigoCargoEmpleado]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="132" y="21" width="100" height="20" uuid="ccd7d768-f6e2-468e-9c4c-afe639dec964"/>
+				<textFieldExpression><![CDATA[$F{codigoEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="21" width="100" height="20" uuid="3b341e20-34b1-4381-9541-12cb2d3c8fbe"/>
+				<textFieldExpression><![CDATA[$F{apellidosEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="21" width="100" height="20" uuid="b0270d12-ba7b-4cda-9955-16388c8a5331"/>
+				<textFieldExpression><![CDATA[$F{turno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="21" width="100" height="20" uuid="1bfd29fd-888a-48d0-ac91-9ca71bab20c0"/>
+				<textFieldExpression><![CDATA[$F{codigoCargoEmpleado}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>

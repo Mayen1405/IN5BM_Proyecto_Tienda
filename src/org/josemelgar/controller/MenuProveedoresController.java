@@ -9,6 +9,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +26,7 @@ import javax.swing.JOptionPane;
 import org.josemelgar.system.Principal;
 import org.josemelgar.bean.Proveedores;
 import org.josemelgar.db.Conexion;
+import org.josemelgar.report.GenerarReportes;
 
 /**
  *
@@ -257,16 +260,26 @@ public class MenuProveedoresController implements Initializable {
 
     public void reportes() {
         switch (tipoDeOperaciones) {
+            case Ninguno:
+                imprimirReporte();
+                break;
             case ActualizarProveedor:
-                desactivarControles();
-                limpiarControles();
-                btnEditarProvedor.setText("Editar");
                 btnReportesProvedor.setText("Reportes");
+                btnEditarProvedor.setText("Editar");
                 btnAgregarProvedor.setDisable(false);
                 btnEliminarProvedor.setDisable(false);
-                tipoDeOperaciones = tipoDeOperaciones.Ninguno;
-
+                btnReturn.setDisable(false);
+                limpiarControles();
+                desactivarControles();
+                tipoDeOperaciones = operaciones.Ninguno;
+                cargarDatos();
         }
+    }
+    
+    public void imprimirReporte() {
+        Map parametro = new HashMap();
+        parametro.put("IDCliente", null);
+        GenerarReportes.mostrarReportes("reportesProveedores.jasper", "Reportes de Proveedores", parametro);
     }
 
     public void actualizar() {
