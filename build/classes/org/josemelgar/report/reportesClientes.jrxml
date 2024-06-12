@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportesClientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="35b850db-d2f2-4682-bf05-9edc9036205e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="288"/>
+	<queryString>
+		<![CDATA[call sp_listarClientes()]]>
+	</queryString>
+	<field name="codigoCliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombresCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidosCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccionCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefonoCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="correoCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="555" height="802" uuid="fae97cf2-46ef-4720-8b65-ac8fd03b8c81"/>
+				<imageExpression><![CDATA["C:\\Users\\Jose\\Documents\\NetBeansProjects\\proyecto tienda\\src\\org\\josemelgar\\images\\Verde y Amarillo Minimalista Monótono Negocio Informe de Avances de los ODS.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="145" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="139" splitType="Stretch">
+			<staticText>
+				<reportElement x="94" y="119" width="100" height="20" uuid="03c00ead-ca20-41b6-b8be-3a67be3795de"/>
+				<text><![CDATA[codigoCliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="119" width="100" height="20" uuid="3b2f56ad-5905-410a-9522-69274cbaf869"/>
+				<text><![CDATA[nit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="119" width="100" height="20" uuid="44b0dae1-37de-4fab-9b86-5f4dae2ecc30"/>
+				<text><![CDATA[apellidosCliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="119" width="100" height="20" uuid="8ca36294-a455-4ef0-b923-5dec280a05e3"/>
+				<text><![CDATA[telefonoCliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="73" splitType="Stretch">
+			<textField>
+				<reportElement x="94" y="43" width="100" height="20" uuid="b140e3cb-5e88-49ca-827d-882570a075ba"/>
+				<textFieldExpression><![CDATA[$F{codigoCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="43" width="100" height="20" uuid="09b496fc-d6f1-4955-8c40-898b7b96456f"/>
+				<textFieldExpression><![CDATA[$F{nit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="43" width="100" height="20" uuid="647b0cca-866e-4501-855a-228e4d5a4832"/>
+				<textFieldExpression><![CDATA[$F{apellidosCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="43" width="100" height="20" uuid="908563f4-c2cb-4c27-a871-8d6ff3befe95"/>
+				<textFieldExpression><![CDATA[$F{telefonoCliente}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="94" y="42" width="400" height="1" uuid="0e28ce58-7d19-42a1-8dd4-37e3a8571d64"/>
+			</line>
+			<line>
+				<reportElement x="94" y="62" width="400" height="1" uuid="0d8e0d19-fbc4-4c96-a6e2-0aaf37fe3046"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement x="94" y="0" width="400" height="1" uuid="ff499f5e-1ede-4dbe-a6ca-6876d9e47a14"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
